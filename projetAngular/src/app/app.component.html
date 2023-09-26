@@ -1,0 +1,14 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}
+  </h1>
+</div>
+
+<ul class="list-group" *ngFor="let film of tableauFilm; index as i;">
+  <app-film [filmName]="film.filmName" [filmOnAir]="film.filmOnAir" [filmAffiche]="film.filmAffiche"></app-film>
+</ul>
+  <!-- <app-film [filmName]="'Les visiteurs'" [filmOnAir]="false" [filmAffiche]="'https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png'"></app-film>
+  <app-film [filmName]="'Yepa'" [filmOnAir]="false" [filmAffiche]="'https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png'"></app-film>
+  <app-film [filmName]="'Jurasic Park'" [filmOnAir]="true" [filmAffiche]="'https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png'"></app-film>
+  <app-film></app-film> -->
+<h3>yepa</h3>
