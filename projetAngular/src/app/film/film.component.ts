@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
+import { FilmService } from '../services/film/film.service';
 
 @Component({
   selector: 'app-film',
@@ -9,9 +10,10 @@ export class FilmComponent implements OnInit {
   @Input() filmName: string = "";
   @Input() filmOnAir: boolean = false;
   @Input() filmAffiche: string = "https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png";
+  @Input() index: number = 0;
 
-  constructor() {
-
+  constructor(private Film: FilmService) {
+    
   }
 
   ngOnInit() {
@@ -28,5 +30,9 @@ export class FilmComponent implements OnInit {
 
   changeColor() {
     return this.filmOnAir ? "purple" : "red";
+  }
+
+  onSwitch() {
+    this.Film.switchOnAir(this.index)
   }
 }

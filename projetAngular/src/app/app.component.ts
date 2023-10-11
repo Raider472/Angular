@@ -1,17 +1,48 @@
-import { Component } from '@angular/core';
-import { FilmComponent } from './film/film.component';
+import { Component, OnInit } from '@angular/core';
+import { FilmService } from './services/film/film.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'projetAngular';
-  tableauFilm: {filmName: string, filmOnAir: boolean, filmAffiche: string}[] = [
-    {filmName: "Les visiteurs", filmOnAir: false, filmAffiche: "https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png"},
-    {filmName: "Terminator", filmOnAir: false, filmAffiche: "https://fr.web.img4.acsta.net/pictures/22/09/27/12/52/4744720.jpg"},
-    {filmName: "John Wick", filmOnAir: true, filmAffiche: "https://m.media-amazon.com/images/I/81fk-N7tvbL._AC_UF894,1000_QL80_.jpg"},
-    {filmName: "Vendredi 13", filmOnAir: true, filmAffiche: "https://www.lulu-berlu.com/upload/image/friday-the-13th---mcfarlane-toys---3-d-movie-poster--affiche-de-film-3-d--p-image-447236-grande.jpg"}
+export class AppComponent implements OnInit {
+  title = 'Film';
+
+  films:{filmName: string, filmOnAir: boolean, filmAffiche: string}[] = []; //Ou any
+  /*
+  films = [
+    {
+      title: 'Jurassic Park',
+      onAir: false,
+      filmAffiche: 'https://upload.wikimedia.org/wikipedia/fr/6/6a/Jurassic_Park_logo.svg'
+    }, 
+    {
+      title: 'Star Wars',
+      onAir: false,
+      filmAffiche: 'https://lumiere-a.akamaihd.net/v1/images/image_83011738.jpeg?region=0,0,540,810'
+    }, 
+    {
+      title: 'Dune',
+      onAir: true,
+      filmAffiche: 'https://musicart.xboxlive.com/7/ca125200-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080'
+    }
   ];
+  */
+
+  constructor(private Film: FilmService) {
+
+  }
+
+  ngOnInit() {
+    this.films = this.Film.filmTableau
+  }
+
+  onAirAll() {
+    this.Film.setOnAir();
+  }
+
+  OnNoAirAll() {
+    this.Film.setNoOnAir();
+  }
 }

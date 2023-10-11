@@ -4,11 +4,19 @@
   </h1>
 </div>
 
-<ul class="list-group" *ngFor="let film of tableauFilm; index as i;">
-  <app-film [filmName]="film.filmName" [filmOnAir]="film.filmOnAir" [filmAffiche]="film.filmAffiche"></app-film>
+<ul class="list-group" *ngFor="let film of films; let i = index;">
+  {{i+1 }}<app-film [filmName]="film.filmName" [filmOnAir]="film.filmOnAir" [filmAffiche]="film.filmAffiche" [index]="i"></app-film>
 </ul>
+
+<!-- 
+  <ul class="lsit-group">
+    <app-film *ngfor="let film of tableauFilm" [filmName]="film.filmName" ...></app-film>
+  </ul>
+ -->
   <!-- <app-film [filmName]="'Les visiteurs'" [filmOnAir]="false" [filmAffiche]="'https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png'"></app-film>
   <app-film [filmName]="'Yepa'" [filmOnAir]="false" [filmAffiche]="'https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png'"></app-film>
   <app-film [filmName]="'Jurasic Park'" [filmOnAir]="true" [filmAffiche]="'https://upload.wikimedia.org/wikipedia/fr/6/60/Les_Visiteurs_Logo.png'"></app-film>
   <app-film></app-film> -->
 <h3>yepa</h3>
+<button class="btn btn-outline-success" (click)="onAirAll()">En salle</button>
+<button class="btn btn-outline-danger" (click)="OnNoAirAll()">Pas en Salle</button>

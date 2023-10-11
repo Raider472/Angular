@@ -10,6 +10,7 @@
     <h3 [ngStyle]="{color: changeColor()}">Film: {{filmName}} -- Visibilité : {{getOnAir()}}</h3>
     <img [src]="filmAffiche" alt="une affiche de cinéma" class="affiche">
     <button class="btn btn-outline-success" (click)="onWatchFilm()">Regarder</button>
+    <button class="btn btn-outline-info" (click)="onSwitch()">Switch</button>
     <!-- <input type="text" class="form-control" [(ngModel)]="filmName"> -->
 </li>
 
